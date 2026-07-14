@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabi & Maxi | Nuestra Boda</title>
+  <meta name="description" content="¡Nos casamos! Celebra con nosotros el día más importante de nuestras vidas. Consulta el itinerario, ubicaciones, mesa de regalos y confirma tu asistencia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <nav class="navbar">
+    <a href="#inicio" class="nav-brand">
+      <img src="logomg.png" alt="Gabi & Maxi" class="nav-logo">
+      <span class="nav-brand-text">Gabi <span class="nav-amp">&</span> Maxi</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#itinerario">Itinerario</a></li>
+      <li><a href="#vestimenta">Vestimenta</a></li>
+      <li><a href="#musica">Música</a></li>
+      <li><a href="#regalos">Mesa de Regalos</a></li>
+      <li><a href="javascript:void(0)" onclick="confirmDirectWhatsApp()" class="nav-cta">Confirmar Asistencia</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+
+  <!-- BOTÓN FLOTANTE DE MÚSICA AMBIENTAL -->
+  <button id="musicToggle" class="music-toggle" onclick="toggleMusic()" aria-label="Activar música de fondo">
+    <span class="music-icon">♪</span>
+    <span class="music-label">DALE PLAY para escuchar nuestra canción</span>
+  </button>
+  <audio id="weddingAudio" preload="auto"></audio>
+
+  <!-- HERO PORTADA -->
+  <header id="inicio" class="hero" style="position:relative;">
+
+    <!-- Flores decorativas de esquina en el hero -->
+    <svg class="flower-corner top-left" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.18;">
+      <path d="M10 210 Q40 140 80 100 Q120 60 170 20" stroke="#949A6C" stroke-width="2"/>
+      <circle cx="80" cy="100" r="18" fill="#949A6C" opacity="0.5"/>
+      <circle cx="80" cy="100" r="9" fill="#C5A880" opacity="0.7"/>
+      <ellipse cx="60" cy="85" rx="14" ry="8" fill="#B8BC9D" opacity="0.6" transform="rotate(-30 60 85)"/>
+      <ellipse cx="100" cy="115" rx="14" ry="8" fill="#B8BC9D" opacity="0.6" transform="rotate(30 100 115)"/>
+      <ellipse cx="65" cy="115" rx="12" ry="7" fill="#C5A880" opacity="0.5" transform="rotate(-50 65 115)"/>
+      <ellipse cx="95" cy="82" rx="12" ry="7" fill="#C5A880" opacity="0.5" transform="rotate(50 95 82)"/>
+      <circle cx="140" cy="60" r="14" fill="#949A6C" opacity="0.45"/>
+      <circle cx="140" cy="60" r="7" fill="#C5A880" opacity="0.6"/>
+      <ellipse cx="125" cy="48" rx="11" ry="6" fill="#B8BC9D" opacity="0.5" transform="rotate(-40 125 48)"/>
+      <ellipse cx="155" cy="72" rx="11" ry="6" fill="#B8BC9D" opacity="0.5" transform="rotate(40 155 72)"/>
+      <circle cx="40" cy="150" r="10" fill="#949A6C" opacity="0.35"/>
+      <circle cx="40" cy="150" r="5" fill="#C5A880" opacity="0.5"/>
+      <ellipse cx="28" cy="140" rx="9" ry="5" fill="#B8BC9D" opacity="0.45" transform="rotate(-20 28 140)"/>
+      <ellipse cx="52" cy="160" rx="9" ry="5" fill="#B8BC9D" opacity="0.45" transform="rotate(20 52 160)"/>
+    </svg>
+
+    <svg class="flower-corner top-right" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.18; transform:scaleX(-1);">
+      <path d="M10 210 Q40 140 80 100 Q120 60 170 20" stroke="#949A6C" stroke-width="2"/>
+      <circle cx="80" cy="100" r="18" fill="#949A6C" opacity="0.5"/>
+      <circle cx="80" cy="100" r="9" fill="#C5A880" opacity="0.7"/>
+      <ellipse cx="60" cy="85" rx="14" ry="8" fill="#B8BC9D" opacity="0.6" transform="rotate(-30 60 85)"/>
+      <ellipse cx="100" cy="115" rx="14" ry="8" fill="#B8BC9D" opacity="0.6" transform="rotate(30 100 115)"/>
+      <circle cx="140" cy="60" r="14" fill="#949A6C" opacity="0.45"/>
+      <circle cx="140" cy="60" r="7" fill="#C5A880" opacity="0.6"/>
+    </svg>
+
+    <div class="hero-content">
+      <!-- Logo MG -->
+      <img src="logomg.png" alt="Monograma Gabi & Maxi" class="hero-logo">
+
+      <p class="hero-clean-subtitle">Celebramos todo lo que somos, y tu presencia es parte de nuestra felicidad.</p>
+      <h1 class="hero-title">Gabi <span class="amp">&</span> Maxi</h1>
+      
+      <div class="hero-modern-date" aria-label="16 de Agosto">
+        <span>16</span>
+        <span class="dot">.</span>
+        <span>08</span>
+      </div>
+
+      <p class="hero-quote">"Nuestra mejor historia no se cuenta en un solo día, se vive en cada paso que dimos juntos para llegar a este momento."</p>
+      
+      <div class="hero-date-badge">
+        <span class="date-part">16 DE AGOSTO</span>
+        <span class="date-divider"></span>
+        <span class="date-part">16:30 HS</span>
+        <span class="date-divider"></span>
+        <span class="date-part">PARROQUIA LA PIEDAD</span>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+        <a href="javascript:void(0)" onclick="confirmDirectWhatsApp()" class="btn btn-primary">Confirmar Asistencia</a>
+        <a href="#ubicacion" class="btn btn-outline">Ver Ubicación</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUENTA REGRESIVA -->
+  <section class="countdown-section">
+    <p class="section-tag">Falta muy poco para el gran día</p>
+    <h2 class="section-title">Cuenta Regresiva</h2>
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <span id="days" class="countdown-number">00</span>
+        <span class="countdown-label">Días</span>
+      </div>
+      <div class="countdown-item">
+        <span id="hours" class="countdown-number">00</span>
+        <span class="countdown-label">Horas</span>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes" class="countdown-number">00</span>
+        <span class="countdown-label">Minutos</span>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds" class="countdown-number">00</span>
+        <span class="countdown-label">Segundos</span>
+      </div>
+    </div>
+  </section>
+  <!-- GALERÍA DE FOTOS -->
+  <section id="galeria" class="gallery-section">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <p class="section-tag">Nuestra historia en imágenes</p>
+      <h2 class="section-title">Nuestros Momentos</h2>
+      <div class="floral-divider"><span>❧</span></div>
+      <p style="color: var(--text-muted); max-width: 560px; margin: 0 auto; font-size: 0.95rem;">
+        Cada foto cuenta una parte de lo que somos. Estos son algunos de los momentos que nos trajeron hasta este gran día.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item--large" onclick="openLightbox(this)">
+        <img src="foto1.jpg" alt="Gabi & Maxi en la playa" loading="lazy">
+        <div class="gallery-overlay">
+          <span>❤</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="foto2.jpg" alt="Un momento especial en Río" loading="lazy">
+        <div class="gallery-overlay">
+          <span>❤</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="foto3.jpg" alt="Nuestra promesa" loading="lazy">
+        <div class="gallery-overlay">
+          <span>❤</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- UBICACIÓN Y CEREMONIA -->
+  <section id="ubicacion" class="locations-section" style="position:relative;">
+    <!-- Flores decorativas en ubicacion -->
+    <svg class="flower-corner top-right" width="160" height="160" viewBox="0 0 160 160" fill="none" style="opacity:0.1; right:0; top:0;">
+      <path d="M8 152 Q35 100 70 70 Q105 40 148 8" stroke="#949A6C" stroke-width="2"/>
+      <circle cx="70" cy="70" r="14" fill="#949A6C" opacity="0.5"/>
+      <circle cx="70" cy="70" r="7" fill="#C5A880" opacity="0.7"/>
+      <ellipse cx="55" cy="58" rx="11" ry="6" fill="#B8BC9D" opacity="0.6" transform="rotate(-30 55 58)"/>
+      <ellipse cx="85" cy="82" rx="11" ry="6" fill="#B8BC9D" opacity="0.6" transform="rotate(30 85 82)"/>
+      <circle cx="110" cy="44" r="10" fill="#C5A880" opacity="0.45"/>
+      <circle cx="110" cy="44" r="5" fill="#ffffff" opacity="0.6"/>
+    </svg>
+    <svg class="flower-corner bottom-left" width="130" height="130" viewBox="0 0 130 130" fill="none" style="opacity:0.08; left:0; bottom:0;">
+      <path d="M8 122 Q30 80 60 55 Q90 30 122 8" stroke="#C5A880" stroke-width="1.8"/>
+      <circle cx="60" cy="55" r="11" fill="#C5A880" opacity="0.5"/>
+      <circle cx="60" cy="55" r="5" fill="#ffffff" opacity="0.7"/>
+      <ellipse cx="46" cy="45" rx="9" ry="5" fill="#949A6C" opacity="0.5" transform="rotate(-25 46 45)"/>
+      <ellipse cx="74" cy="65" rx="9" ry="5" fill="#949A6C" opacity="0.5" transform="rotate(25 74 65)"/>
+    </svg>
+
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <p class="section-tag">¿Dónde celebraremos?</p>
+      <h2 class="section-title">Ceremonia & Recepción</h2>
+      <div class="floral-divider"><span>❧</span></div>
+    </div>
+    <div class="locations-grid">
+      <!-- Ceremonia Religiosa -->
+      <div class="location-card">
+        <div class="location-icon">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v6m-3-3h6M12 8l-8 5v9h16v-9l-8-5z"/>
+            <path d="M10 22v-5a2 2 0 1 1 4 0v5"/>
+          </svg>
+        </div>
+        <span class="location-badge">LA CEREMONIA</span>
+        <h3 class="location-title">Parroquia La Piedad</h3>
+        <p class="location-time">16:30 HS</p>
+        <p class="location-address">Iglesia La Piedad, PCRR+9X3, Asunción 001522</p>
+        <a href="https://maps.app.goo.gl/rzkUe41rUkmGQBLSA?g_st=ic" target="_blank" rel="noopener" class="btn btn-outline">📍 Clic para ir al mapa</a>
+      </div>
+
+      <!-- Recepción y Fiesta -->
+      <div class="location-card">
+        <div class="location-icon">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 22h8M12 15v7M8 3h8l-2 7a4 4 0 0 1-4 0L8 3z"/>
+            <path d="M19 8l-2 4a3 3 0 0 1-2.83 2H17"/>
+          </svg>
+        </div>
+        <span class="location-badge">LA RECEPCIÓN</span>
+        <h3 class="location-title">Villa Jardín Eventos</h3>
+        <p class="location-time">18:00 HS</p>
+        <p class="location-address">Villa Jardin, Capitan Valois Rivarola 250, Luque 110917</p>
+        <a href="https://maps.app.goo.gl/NsjZWvEmaJZRDY6f9?g_st=ic" target="_blank" rel="noopener" class="btn btn-outline">📍 Clic para ir al mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section id="itinerario" class="timeline-section">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+      <p class="section-tag">Paso a paso</p>
+      <h2 class="section-title">Itinerario del Gran Día</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <p class="timeline-time">16:30 HS</p>
+          <h3 class="timeline-title">La Ceremonia</h3>
+          <p class="timeline-desc">Bendición y unión en matrimonio en Iglesia La Piedad (PCRR+9X3, Asunción).</p>
+        </div>
+        <div class="timeline-point"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <p class="timeline-time">18:00 HS</p>
+          <h3 class="timeline-title">La Recepción</h3>
+          <p class="timeline-desc">Llegada, cóctel y celebración en Villa Jardin (Capitan Valois Rivarola 250, Luque).</p>
+        </div>
+        <div class="timeline-point"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <p class="timeline-time">20:00 HS</p>
+          <h3 class="timeline-title">Cena & Banquete</h3>
+          <p class="timeline-desc">Banquete formal y palabras de agradecimiento de los novios.</p>
+        </div>
+        <div class="timeline-point"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <p class="timeline-time">21:30 HS</p>
+          <h3 class="timeline-title">Baile & Fiesta</h3>
+          <p class="timeline-desc">Apertura de pista, DJ en vivo y celebración hasta las 00:00 HS.</p>
+        </div>
+        <div class="timeline-point"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓDIGO DE VESTIMENTA & NOTA DE ASISTENCIA -->
+  <section id="vestimenta" class="dress-section" style="position:relative;">
+    <!-- Flores decorativas esquinas vestimenta -->
+    <svg class="flower-corner top-left" width="140" height="140" viewBox="0 0 140 140" fill="none" style="opacity:0.1; left:0; top:0;">
+      <path d="M8 132 Q35 88 65 62 Q95 36 132 8" stroke="#C5A880" stroke-width="2"/>
+      <circle cx="65" cy="62" r="13" fill="#C5A880" opacity="0.5"/>
+      <circle cx="65" cy="62" r="6" fill="#ffffff" opacity="0.8"/>
+      <ellipse cx="50" cy="50" rx="10" ry="6" fill="#949A6C" opacity="0.5" transform="rotate(-30 50 50)"/>
+      <ellipse cx="80" cy="74" rx="10" ry="6" fill="#949A6C" opacity="0.5" transform="rotate(30 80 74)"/>
+    </svg>
+    <svg class="flower-corner top-right" width="140" height="140" viewBox="0 0 140 140" fill="none" style="opacity:0.1; right:0; top:0; transform:scaleX(-1);">
+      <path d="M8 132 Q35 88 65 62 Q95 36 132 8" stroke="#949A6C" stroke-width="2"/>
+      <circle cx="65" cy="62" r="13" fill="#949A6C" opacity="0.5"/>
+      <circle cx="65" cy="62" r="6" fill="#C5A880" opacity="0.7"/>
+      <ellipse cx="50" cy="50" rx="10" ry="6" fill="#B8BC9D" opacity="0.5" transform="rotate(-30 50 50)"/>
+      <ellipse cx="80" cy="74" rx="10" ry="6" fill="#B8BC9D" opacity="0.5" transform="rotate(30 80 74)"/>
+    </svg>
+    <div class="dress-card">
+      <p class="section-tag">Elegancia & Estilo</p>
+      <h2 class="section-title">Código de Vestimenta</h2>
+      <p style="font-size: 1.15rem; font-weight: 600; color: var(--gold-accent); margin-bottom: 1rem;">FORMAL</p>
+      <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto;">
+        Hombres: Traje formal.<br>
+        Mujeres: Vestido largo elegante. Les agradecemos reservar el color blanco y tonos marfil exclusivamente para la novia.
+      </p>
+
+      <!-- Nota especial Solo Adultos -->
+      <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px dashed var(--sage-light); max-width: 560px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold-accent); margin-bottom: 0.6rem;">
+          ✨ Evento Solo para Adultos ✨
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-style: italic;">
+          "Amamos muchísimo a sus hijos, pero hemos decidido que nuestra boda sea una celebración exclusivamente para adultos. ¡Esperamos que disfruten y celebren esta noche de fiesta con nosotros!"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PLAYLIST COLABORATIVA DE SPOTIFY -->
+  <section id="musica" class="playlist-section">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <p class="section-tag">¿Qué canción no puede faltar?</p>
+      <h2 class="section-title">Armemos Juntos la Playlist</h2>
+      <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto;">
+        ¡La fiesta la hacemos entre todos! Te invitamos a sumar esas canciones que sí o sí tenemos que bailar. Puedes escuchar un adelanto o entrar a Spotify para agregar tus temas favoritos.
+      </p>
+    </div>
+
+    <div class="playlist-card">
+      <iframe data-testid="embed-iframe" style="border-radius:12px;" src="https://open.spotify.com/embed/playlist/1Up4F63Z28V4y8qLI1xAj1?utm_source=generator&theme=0&si=af613e56edad4c8c" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      
+      <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px dashed var(--sage-light);">
+        <a href="https://open.spotify.com/playlist/1Up4F63Z28V4y8qLI1xAj1?si=6bf08503ddff4e38&pt=46dafee43fc798871f8b0b13335368fa" target="_blank" rel="noopener" class="btn btn-primary" style="background: #1DB954; color: #fff; font-weight: 600; padding: 1.05rem 2.2rem; display: inline-flex; align-items: center; gap: 0.6rem; box-shadow: 0 8px 24px rgba(29, 185, 84, 0.3); text-decoration: none;">
+          <span style="font-size: 1.25rem;">🎵</span> Agregar Mis Canciones en Spotify
+        </a>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">
+          Toca el botón para unirte a la playlist pública y añadir tus canciones infaltables.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESA DE REGALOS & DATOS BANCARIOS -->
+  <section id="regalos" class="gifts-section">
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <p class="section-tag">Su presencia es nuestro mayor tesoro</p>
+      <h2 class="section-title">Mesa de Regalos</h2>
+    </div>
+
+    <div class="gifts-grid" style="max-width: 520px; margin: 0 auto;">
+      <!-- Tarjeta Transferencia Bancaria -->
+      <div class="gift-card">
+        <div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏛️</div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 1rem;">Transferencia Bancaria</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+            El regalo es opcional, la asistencia obligatoria. Si desean tener un detalle con nosotros, ponemos a su disposición nuestros datos bancarios:
+          </p>
+          <div class="bank-details">
+            <div class="bank-row">
+              <span class="bank-label">Titular:</span>
+              <span class="bank-val">MEDINA MAXIMILIANO LEOPOLDO</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Banco:</span>
+              <span class="bank-val">Basa</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">N° Documento:</span>
+              <span class="bank-val">7365831</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">N° Cuenta:</span>
+              <span class="bank-val">255093246</span>
+            </div>
+            <div class="bank-row" style="margin-bottom: 0;">
+              <span class="bank-label">Alias:</span>
+              <span class="bank-val">0981566619</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; width: 100%;">
+          <button onclick="copyToClipboard('255093246', 'N° de Cuenta')" class="btn btn-outline" style="flex: 1; min-width: 140px; justify-content: center; padding: 0.75rem 1rem; font-size: 0.78rem;">
+            Copiar Cuenta
+          </button>
+          <button onclick="copyToClipboard('0981566619', 'Alias')" class="btn btn-outline" style="flex: 1; min-width: 140px; justify-content: center; padding: 0.75rem 1rem; font-size: 0.78rem;">
+            Copiar Alias
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE CIERRE Y RSVP -->
+  <section class="rsvp-section">
+    <p class="section-tag">¡Te esperamos con los brazos abiertos!</p>
+    <h2 class="section-title" style="margin-bottom: 2rem;">¿Nos acompañas en nuestro gran día?</h2>
+    <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2.5rem;">
+      Te agradecemos confirmar tu asistencia para poder planificar cada detalle con mucho cariño.
+    </p>
+    <div class="rsvp-btn-container">
+      <button onclick="confirmDirectWhatsApp()" class="btn btn-rsvp">
+        💬 Confirmar Asistencia por WhatsApp
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="logomg.png" alt="Monograma MG" class="footer-logo">
+    <h3 class="footer-names">Gabi & Maxi</h3>
+    <p class="footer-note">Hecho con amor • 16 . 08</p>
+  </footer>
+
+  <!-- TOAST NOTIFICACIÓN -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
