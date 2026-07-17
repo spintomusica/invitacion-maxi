@@ -369,6 +369,35 @@ body::before {
   background: var(--sage-primary);
 }
 
+/* Hero Deadline Pill */
+.hero-deadline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.65rem 1.4rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(197, 168, 128, 0.5);
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(45, 49, 36, 0.06);
+  font-size: 0.88rem;
+  color: var(--charcoal);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.hero-deadline-pill:hover {
+  border-color: var(--gold-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 168, 128, 0.2);
+}
+
+.hero-deadline-pill strong {
+  color: var(--sage-dark);
+  font-weight: 600;
+}
+
 /* COUNTDOWN TIMER SECTION */
 .countdown-section {
   padding: 4rem 2rem 6rem;
@@ -1001,6 +1030,94 @@ body::before {
 
 .rsvp-section .section-title {
   color: #fff;
+}
+
+/* RSVP Deadline Card */
+.rsvp-deadline-card {
+  max-width: 580px;
+  margin: 0 auto 2.8rem;
+  padding: 2.2rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(197, 168, 128, 0.45);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.rsvp-deadline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+}
+
+.rsvp-deadline-card:hover {
+  border-color: var(--gold-accent);
+  box-shadow: 0 16px 45px rgba(197, 168, 128, 0.15);
+  transform: translateY(-3px);
+}
+
+.deadline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.deadline-card-icon {
+  font-size: 1.3rem;
+}
+
+.deadline-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--gold-accent);
+  margin: 0;
+}
+
+.deadline-card-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.deadline-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 500px) {
+  .hero-deadline-pill {
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+    text-align: center;
+  }
+  .rsvp-deadline-card {
+    padding: 1.6rem 1.25rem;
+  }
+  .deadline-card-title {
+    font-size: 1.35rem;
+  }
+  .deadline-card-date {
+    font-size: 1.15rem;
+  }
 }
 
 .rsvp-btn-container {
